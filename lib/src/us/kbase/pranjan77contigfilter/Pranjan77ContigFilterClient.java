@@ -156,4 +156,21 @@ public class Pranjan77ContigFilterClient {
         List<FilterContigsResults> res = caller.jsonrpcCall("pranjan77_ContigFilter.filter_contigs", args, retType, true, true, jsonRpcContext);
         return res.get(0);
     }
+
+    /**
+     * <p>Original spec-file function name: filter_contigs_max</p>
+     * <pre>
+     * </pre>
+     * @param   params   instance of type {@link us.kbase.pranjan77contigfilter.FilterContigsMaxParams FilterContigsMaxParams}
+     * @return   instance of type {@link us.kbase.pranjan77contigfilter.FilterContigsResults FilterContigsResults}
+     * @throws IOException if an IO exception occurs
+     * @throws JsonClientException if a JSON RPC exception occurs
+     */
+    public FilterContigsResults filterContigsMax(FilterContigsMaxParams params, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+        List<Object> args = new ArrayList<Object>();
+        args.add(params);
+        TypeReference<List<FilterContigsResults>> retType = new TypeReference<List<FilterContigsResults>>() {};
+        List<FilterContigsResults> res = caller.jsonrpcCall("pranjan77_ContigFilter.filter_contigs_max", args, retType, true, true, jsonRpcContext);
+        return res.get(0);
+    }
 }

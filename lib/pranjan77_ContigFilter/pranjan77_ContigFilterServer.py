@@ -64,6 +64,9 @@ async_check_methods = {}
 async_run_methods['pranjan77_ContigFilter.filter_contigs_async'] = ['pranjan77_ContigFilter', 'filter_contigs']
 async_check_methods['pranjan77_ContigFilter.filter_contigs_check'] = ['pranjan77_ContigFilter', 'filter_contigs']
 sync_methods['pranjan77_ContigFilter.filter_contigs'] = True
+async_run_methods['pranjan77_ContigFilter.filter_contigs_max_async'] = ['pranjan77_ContigFilter', 'filter_contigs_max']
+async_check_methods['pranjan77_ContigFilter.filter_contigs_max_check'] = ['pranjan77_ContigFilter', 'filter_contigs_max']
+sync_methods['pranjan77_ContigFilter.filter_contigs_max'] = True
 
 class AsyncJobServiceClient(object):
 
@@ -339,6 +342,10 @@ class Application(object):
                              name='pranjan77_ContigFilter.filter_contigs',
                              types=[dict])
         self.method_authentication['pranjan77_ContigFilter.filter_contigs'] = 'required'
+        self.rpc_service.add(impl_pranjan77_ContigFilter.filter_contigs_max,
+                             name='pranjan77_ContigFilter.filter_contigs_max',
+                             types=[dict])
+        self.method_authentication['pranjan77_ContigFilter.filter_contigs_max'] = 'required'
         self.auth_client = biokbase.nexus.Client(
             config={'server': 'nexus.api.globusonline.org',
                     'verify_ssl': True,
